@@ -1,0 +1,98 @@
+# ------------------------------------------------------------------------------------------------
+#  Ranked Enhancements
+#  Better PvP mechanics for every player, plus no-latency features for players on the
+#  Eaglercraft Ranked client. https://eaglercraftranked.com
+# ------------------------------------------------------------------------------------------------
+#
+#  Every feature has the same three settings:
+#
+#    enabled          true / false   turns the feature on or off
+#    only-in-worlds   true / false   true  = only in the worlds listed under "worlds"
+#                                    false = in every world (the list is ignored)
+#    worlds           a list of world names, one per line:
+#                       - world
+#                       - world_nether
+#
+#  Apply changes with /rankedenhancements reload (no restart needed).
+#
+#  None of these change what players send to the server, so anticheats keep working as usual.
+
+
+# Wind charge catch
+#   Throwing a wind charge while falling fast, looking down and at least 10 blocks above the
+#   ground stops your fall with a small hop instead of launching the charge. The wind charge
+#   is used up. Lets players save themselves from a long fall the way the WindChargeReset
+#   mechanic does.
+wind-charge-catch:
+  enabled: true
+  only-in-worlds: false
+  worlds:
+    - world
+
+# Fixed projectiles
+#   Ender pearls, wind charges, snowballs, eggs, potions, bottles o' enchanting, tridents,
+#   arrows and crossbow shots fly exactly where you aim. Vanilla adds a small random spread to
+#   every throw and shot; this removes it, keeping vanilla speed and the momentum vanilla adds
+#   from your own movement.
+#   A wind charge thrown up to 2.5 seconds after your pearl (or 1 second before it) is also
+#   nudged slightly so it catches the pearl more reliably. The pearl itself is never moved.
+fixed-projectiles:
+  enabled: true
+  only-in-worlds: false
+  worlds:
+    - world
+
+# Easy stun slam
+#   After your axe disables someone's shield, a mace hit on them within 0.4 seconds still
+#   smashes (it keeps the fall you had when the axe hit) and goes through their hit cooldown.
+easy-stun-slam:
+  enabled: true
+  only-in-worlds: false
+  worlds:
+    - world
+
+# Shield stun
+#   The axe hit that disables a shield counts as a blocked hit, so vanilla gives the victim
+#   half a second of hit cooldown and your next hit does almost nothing. With this on, your
+#   next hit on them in that half second lands as a full hit.
+shield-stun:
+  enabled: true
+  only-in-worlds: false
+  worlds:
+    - world
+
+# Anti pearl glitch
+#   Stops players from glitching into blocks, through doors, trapdoors, fences, panes and
+#   slabs, or through walls and ceilings with ender pearls. A pearl only teleports you to a
+#   spot your whole body fits in that is in plain reach of where the pearl landed; if the
+#   landing spot does not fit, you are moved a little to the nearest one that does (like when
+#   a pearl hits a wall or a ceiling). If there is none, the teleport does not happen.
+anti-pearl-glitch:
+  enabled: true
+  only-in-worlds: false
+  worlds:
+    - world
+
+# Fast crystals
+#   End crystals are placed and broken the moment the player's click reaches the server,
+#   instead of waiting for the next server tick, so players with higher ping can crystal as
+#   fast as everyone else. Uses vanilla reach and damage. Needs the PacketEvents plugin.
+#   Based on FasterCrystals by Jyguy (GPL-3.0).
+fast-crystals:
+  enabled: true
+  only-in-worlds: false
+  worlds:
+    - world
+
+# No-latency features (Eaglercraft Ranked client only)
+#   Players on the Eaglercraft Ranked client see end crystals and respawn anchors appear and
+#   explode the moment they place or hit them (shown by their own client, then confirmed by
+#   the server), and the blocks an explosion destroys are sent to them right away instead of
+#   on the next tick. Their client also shows a short "Ranked Enhanced" notice when they join.
+#   The server still decides every hit, placement and explosion with vanilla rules, and the
+#   client only sends normal Minecraft packets, so anticheats see nothing unusual.
+no-latency-features:
+  enabled: true
+  only-in-worlds: false
+  worlds:
+    - world

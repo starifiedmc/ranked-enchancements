@@ -1,0 +1,18 @@
+name: RankedEnhancements
+version: '${version}'
+main: com.eaglercraftranked.enhancements.RankedEnhancements
+api-version: '1.21'
+description: Better PvP mechanics for everyone, and no-latency features for Eaglercraft Ranked players.
+authors: [Eaglercraft Ranked]
+website: https://eaglercraftranked.com
+softdepend: [packetevents]
+commands:
+  rankedenhancements:
+    description: Reload or show the state of Ranked Enhancements.
+    usage: /rankedenhancements <reload|status>
+    aliases: [renh]
+    permission: rankedenhancements.admin
+permissions:
+  rankedenhancements.admin:
+    description: Use /rankedenhancements.
+    default: op
