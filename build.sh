@@ -4,7 +4,7 @@
 # Needs JDK 25 and the API jars from fetch-libs.sh (the plugin itself runs on Java 21+).
 set -euo pipefail
 cd "$(dirname "$0")"
-VERSION=1.0.0
+VERSION=1.1.0
 SRC=$(find src/main/java -name '*.java')
 case "$(uname -s)" in MINGW*|MSYS*|CYGWIN*) S=";" ;; *) S=":" ;; esac
 rm -rf build && mkdir -p build/classes build/check

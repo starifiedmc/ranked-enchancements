@@ -16,6 +16,7 @@ The config file explains each one.
 | --- | --- |
 | `wind-charge-catch` | A wind charge thrown while falling fast and looking down breaks the fall with a small hop |
 | `fixed-projectiles` | Pearls, wind charges, potions, arrows, tridents etc. fly exactly where you aim (no random spread) |
+| `pearl-catch` | An advanced algorithm that makes your pearl catches land a lot more often in mace PvP |
 | `easy-stun-slam` | A mace hit within 0.4 s of your axe disabling a shield still smashes and ignores the hit cooldown |
 | `shield-stun` | Your next hit after disabling a shield lands as a full hit instead of being eaten by the hit cooldown |
 | `anti-pearl-glitch` | Pearls can't put you inside blocks or through doors, trapdoors, panes, slabs, walls or ceilings |

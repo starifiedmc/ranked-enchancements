@@ -5,6 +5,7 @@ public enum Feature {
 
 	WIND_CHARGE_CATCH("wind-charge-catch"),
 	FIXED_PROJECTILES("fixed-projectiles"),
+	PEARL_CATCH("pearl-catch"),
 	EASY_STUN_SLAM("easy-stun-slam"),
 	SHIELD_STUN("shield-stun"),
 	ANTI_PEARL_GLITCH("anti-pearl-glitch"),

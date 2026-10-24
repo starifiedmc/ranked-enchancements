@@ -34,9 +34,18 @@ wind-charge-catch:
 #   arrows and crossbow shots fly exactly where you aim. Vanilla adds a small random spread to
 #   every throw and shot; this removes it, keeping vanilla speed and the momentum vanilla adds
 #   from your own movement.
-#   A wind charge thrown up to 2.5 seconds after your pearl (or 1 second before it) is also
-#   nudged slightly so it catches the pearl more reliably. The pearl itself is never moved.
 fixed-projectiles:
+  enabled: true
+  only-in-worlds: false
+  worlds:
+    - world
+
+# Pearl catch
+#   An advanced algorithm that makes your pearl catches land a lot more often in mace PvP.
+#   It follows your pearl and wind charge ahead in time and lines the wind charge up with the
+#   pearl (thrown up to 2.5 seconds after it, or 1 second before), so a throw that would just
+#   miss still catches. The pearl itself is never moved. Works with or without fixed-projectiles.
+pearl-catch:
   enabled: true
   only-in-worlds: false
   worlds:

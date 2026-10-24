@@ -42,8 +42,8 @@ import com.eaglercraftranked.enhancements.Feature;
 import com.eaglercraftranked.enhancements.RankedEnhancements;
 
 /**
- * Projectiles leave exactly along the aim (vanilla speed and momentum, no random spread), and a wind charge is
- * steered a little so it catches its owner's pearl.
+ * fixed-projectiles: projectiles leave exactly along the aim (vanilla speed and momentum, no random spread).
+ * pearl-catch: a wind charge is steered a little so it catches its owner's pearl.
  */
 public final class FixedProjectiles implements Listener {
 
@@ -104,6 +104,9 @@ public final class FixedProjectiles implements Listener {
 				|| proj instanceof Firework) {
 			return;
 		}
+		if ((proj instanceof EnderPearl || proj instanceof WindCharge) && plugin.features().on(Feature.PEARL_CATCH, p.getWorld())) {
+			pairCatch(p, proj);
+		}
 		if (!plugin.features().on(Feature.FIXED_PROJECTILES, p.getWorld())) {
 			return;
 		}
@@ -125,9 +128,6 @@ public final class FixedProjectiles implements Listener {
 		Vector v = shotFromRotation(at.getPitch(), at.getYaw(), yOffset, pow);
 		addKnownMovement(p, v);
 		proj.setVelocity(v);
-		if (proj instanceof EnderPearl || proj instanceof WindCharge) {
-			pairCatch(p, proj);
-		}
 	}
 
 	@EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
@@ -275,7 +275,7 @@ public final class FixedProjectiles implements Listener {
 			Catch c = it.next();
 			if (now > c.until || !c.pearl.isValid() || !c.charge.isValid() || c.pearl.getWorld() != c.charge.getWorld()
 					|| !ownedBy(c.pearl, c.owner) || !ownedBy(c.charge, c.owner)
-					|| !plugin.features().on(Feature.FIXED_PROJECTILES, c.pearl.getWorld())) {
+					|| !plugin.features().on(Feature.PEARL_CATCH, c.pearl.getWorld())) {
 				it.remove();
 				continue;
 			}
